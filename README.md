@@ -19,23 +19,7 @@ Our vehicle was not created as one finished design. It was developed through rep
 
 # 1. Vehicle Overview
 
-Our vehicle is an autonomous four-wheel robot designed for the WRO Future Engineers competition.
-
-The vehicle uses a **rear-wheel propulsion system** together with an **Ackermann-style front steering mechanism**. The rear drive system provides forward movement, while a separate steering motor changes the angle of the front wheels.
-
-This arrangement was chosen because Ackermann steering operates similarly to the steering of a conventional road vehicle. When turning, the inner and outer front wheels follow different turning radii instead of being forced to travel through the same path.
-
-The main controller is an **EVOX1-based controller**, programmed using Arduino-style C++.
-
-The autonomous vehicle combines several sensing systems:
-
-* **HuskyLens vision sensor** for recognising coloured objects;
-* **Time-of-Flight (ToF) sensors** for measuring distance from walls and nearby objects;
-* **IMU / gyroscope** for measuring the heading and orientation of the vehicle.
-
-The controller combines these sensor inputs with commands to the propulsion and steering motors.
-
-The software evolved from simple forward-driving and colour-recognition experiments into more advanced navigation involving steering correction, distance sensing, heading correction, turning, and lap-navigation logic.
+Our vehicle is an autonomous four-wheel robot designed for the WRO Future Engineers competition. It uses a rear-wheel propulsion system together with an Ackermann front steering mechanism, where the rear drive system provides forward movement and a separate steering motor controls the angle of the front wheels. We chose this arrangement because Ackermann steering operates similarly to a conventional road vehicle, with the inner and outer front wheels following different turning radii during a turn. The main controller is an EVOX1-based controller programmed using Arduino-style C++. The vehicle combines several sensing systems, including the HuskyLens vision sensor for recognising coloured objects, Time-of-Flight (ToF) sensors for measuring distances from walls and nearby objects, and an IMU/gyroscope for measuring the vehicle’s heading and orientation. The controller combines these sensor inputs with commands to the propulsion and steering motors. Throughout development, the software progressed from simple forward-driving and colour-recognition experiments to more advanced navigation involving steering corrections, distance sensing, heading control, turning, and autonomous lap-navigation logic.
 
 ---
 
@@ -43,23 +27,7 @@ The software evolved from simple forward-driving and colour-recognition experime
 
 ## 2.1 Initial Chassis Development
 
-Construction of the vehicle began on **29 April 2026**.
-
-During the first development session, we studied the competition requirements, researched vehicle designs, prepared a parts list, and started constructing the base of the robot.
-
-We selected **Ackermann steering** as our steering concept from the beginning.
-
-One of our first problems was designing a steering system using the available components. Suitable examples matching our exact requirements were difficult to find, and the steering gears initially did not align correctly.
-
-As a result, the steering mechanism was developed through testing and modification rather than directly copying an existing design.
-
-On **6 May**, the steering system was modified because the height of the front steering assembly did not properly match the rear wheels. Different combinations of structural components were tested until the front and rear parts of the chassis were aligned correctly.
-
-The base and wiring were subsequently completed.
-
-During later testing, we also found that chassis balance affected the behaviour of the robot. On **13 May**, we researched previous successful WRO Future Engineers vehicles and modified parts of our own vehicle to improve its balance.
-
-This became an important theme throughout the project: mechanical reliability had to be achieved before software behaviour could become repeatable.
+Construction of the vehicle began on 29 April 2026. During the first development session, we studied the competition requirements, researched different vehicle designs, prepared a parts list, and began constructing the base of the robot. We selected Ackermann steering as our steering concept from the beginning, but one of our first challenges was designing a suitable steering system using the available components. Since it was difficult to find existing designs that matched our exact requirements, and the steering gears initially did not align correctly, the mechanism had to be developed through testing and modification rather than simply copying an existing design. On 6 May, we modified the steering system because the height of the front steering assembly did not properly match the rear wheels. We tested different combinations of structural components until the front and rear sections of the chassis were correctly aligned, after which the base and wiring were completed. During later testing, we also found that the balance of the chassis affected the vehicle’s behaviour. On 13 May, we researched previous successful WRO Future Engineers vehicles and modified parts of our own vehicle to improve its balance. This became an important theme throughout the project, as we learned that mechanical reliability had to be established before the software could produce consistent and repeatable behaviour.
 
 ---
 
@@ -79,7 +47,7 @@ During development, problems included:
 * mechanical alignment affecting vehicle movement;
 * hardware inconsistencies causing identical software commands to produce different results.
 
-On **1 July**, for example, only one rear wheel was moving properly. The rear-wheel mechanism had to be repaired before meaningful software testing could continue.
+On 1 July, for example, only one rear wheel was moving properly. The rear-wheel mechanism had to be repaired before meaningful software testing could continue.
 
 This taught us an important engineering lesson: software cannot reliably compensate for an inconsistent mechanical system.
 
@@ -89,31 +57,7 @@ If an axle moves or a wheel does not receive power correctly, changing steering 
 
 ## 2.3 Ackermann Steering
 
-The front wheels use an Ackermann-style steering system.
-
-Ackermann steering allows the inside and outside front wheels to follow different turning radii. The inside wheel travels around a smaller radius while the outside wheel follows a larger radius.
-
-A dedicated motor controls the steering mechanism.
-
-The steering system was one of the most heavily modified parts of the robot.
-
-The first version suffered from gear-alignment problems.
-
-On **6 May**, the geometry and height of the steering system were changed.
-
-On **29 May**, the steering mechanism was damaged and required a temporary repair.
-
-On **1 July**, the steering broke again and had to be rebuilt.
-
-By **10 July**, we had created a more permanent steering structure.
-
-On **17 July**, the front steering was repaired and modified again to increase the available turning range.
-
-Finally, on **29 July**, steering calibration was completed while the overall vehicle structure was rebuilt into its final mechanical form.
-
-Software testing also revealed an important limitation. Early steering experiments showed that continuously driving the steering motor at high power could force the mechanism against its physical limit. This placed unnecessary load on the mechanism and could damage or move parts.
-
-We therefore moved toward controlled steering movements and short steering corrections instead of continuously forcing the motor in one direction.
+The front wheels use an Ackermann-style steering system, which allows the inside and outside front wheels to follow different turning radii, with the inside wheel travelling around a smaller radius and the outside wheel following a larger one. A dedicated motor controls the steering mechanism, which became one of the most heavily modified parts of the vehicle throughout development. The first version experienced gear-alignment problems, leading to changes in the steering geometry and height on 6 May. On 29 May, the steering mechanism was damaged and required a temporary repair, before breaking again on 1 July and needing to be rebuilt. By 10 July, we had developed a more permanent steering structure, and on 17 July the front steering was repaired and modified again to increase the available turning range. Finally, on 29 July, steering calibration was completed while the overall vehicle structure was rebuilt into its final mechanical form. Software testing also revealed that continuously driving the steering motor at high power could force the mechanism against its physical limit, placing unnecessary stress on the system and potentially causing damage or unwanted movement. We therefore moved towards controlled steering movements and short steering corrections instead of continuously forcing the motor in one direction. This improved the reliability and control of the steering system during autonomous driving.
 
 ---
 
@@ -130,7 +74,7 @@ For example:
 * chassis balance affected how consistently the vehicle travelled;
 * mechanical instability made software calibration difficult.
 
-On **29 July**, the entire structure of the robot was rebuilt.
+On 29 July, the entire structure of the robot was rebuilt.
 
 This was not simply an aesthetic redesign. The hardware was modified specifically so that the software could control the vehicle more consistently.
 
@@ -142,7 +86,7 @@ This interaction between mechanical design and control software influenced many 
 
 ## 3.1 Main Controller
 
-The main controller used in the vehicle is an **EVOX1-based controller**.
+The main controller used in the vehicle is an EVOX1-based controller.
 
 The controller runs the autonomous navigation software and interfaces with the motors and sensors.
 
@@ -163,40 +107,19 @@ The controller is programmed using Arduino-style C++.
 
 ## 3.2 Power Architecture
 
-The vehicle is powered through its onboard battery and the EVOX1 hardware.
-
-Electrical power is distributed to the controller, motors, and sensors.
-
-Power and connection reliability became important during testing because intermittent hardware connections sometimes prevented the robot from uploading or operating correctly.
-
-During later development, the robot occasionally had to be reset before new software could be uploaded. The BOOT button also became unreliable during some sessions.
-
-These problems were treated separately from software logic because a successful compilation does not guarantee that the controller can physically receive the program.
+The vehicle is powered through its onboard battery and EVOX1 hardware, which distributes electrical power to the controller, motors, and sensors. Power and connection reliability became increasingly important during testing because intermittent hardware connections sometimes prevented the robot from uploading or operating correctly. During later development, the robot occasionally had to be reset before new software could be uploaded, and the BOOT button also became unreliable during some testing sessions. We treated these issues separately from the software logic because successful compilation does not always mean that the controller can physically receive or run the program.
 
 ---
 
 ## 3.3 HuskyLens Vision Sensor
 
-The HuskyLens was originally added to the vehicle for the **Obstacle Challenge**, where it was intended to recognise coloured obstacles and trigger different steering responses.
-
-During the development process, our team decided not to continue with the Obstacle Challenge and instead focused on completing the **Open Challenge** reliably.
-
-Rather than removing the HuskyLens completely, we continued experimenting with it as part of the Open Challenge development. We explored whether its visual information could be used as an additional navigation input alongside the Time-of-Flight sensors and IMU.
-
-This change reflects the iterative nature of our project. The HuskyLens began as a sensor for obstacle recognition, but after our competition strategy changed, we investigated how an existing component could still contribute to the final Open Challenge vehicle instead of redesigning the entire sensor architecture.
-
-The final Open Challenge navigation strategy therefore focuses primarily on reliable lap navigation using steering control, distance sensing, and heading correction, while the HuskyLens remains part of our development and experimentation with visual sensing.
-
+The HuskyLens was originally added to the vehicle for the Obstacle Challenge, where it was intended to recognise coloured obstacles and trigger different steering responses. During development, however, our team decided not to continue with the Obstacle Challenge and instead focused on completing the Open Challenge reliably. Rather than removing the HuskyLens completely, we continued experimenting with it as an additional source of navigation information alongside the Time-of-Flight sensors and IMU. This change reflected the iterative nature of our project, as we explored how an existing component could still contribute to the final vehicle instead of redesigning the entire sensor system. The final Open Challenge navigation strategy therefore focused mainly on reliable lap navigation using steering control, distance sensing, and heading correction, while the HuskyLens remained part of our development and experimentation with visual sensing.
 
 ---
 
 ## 3.4 Time-of-Flight Sensors
 
-Time-of-Flight sensors were introduced to measure the distance between the robot and surrounding walls or objects.
-
-Unlike the HuskyLens, which provides visual information, the ToF sensors provide numerical distance measurements.
-
-This allows the controller to estimate whether the vehicle is too close to or too far from a wall.
+Time-of-Flight sensors were introduced to measure the distance between the robot and surrounding walls or objects. Unlike the HuskyLens, which provides visual information, the ToF sensors provide numerical distance measurements. This allows the controller to estimate whether the vehicle is too close to or too far from a wall.
 
 The basic concept is:
 
@@ -214,17 +137,7 @@ EVOX1 Controller
 Steering Correction
 ```
 
-Programming of the ToF sensors began in July.
-
-By **10 July**, ToF programming had started.
-
-On **21 July**, ToF sensing had been incorporated into navigation experiments.
-
-The sensors did not work correctly immediately. During August testing, ToF readings were found to be unreliable.
-
-On **14 August**, the team identified an issue affecting the ToF system and continued troubleshooting.
-
-By **21 August**, ToF distance readings were being connected directly to steering behaviour.
+Programming of the ToF sensors began in July, with development starting by 10 July and the sensors being incorporated into navigation experiments by 21 July. However, the ToF sensors did not work reliably from the beginning, and testing in August revealed issues with the distance readings. On 14 August, we identified a problem affecting the ToF system and continued troubleshooting to improve its reliability. By 21 August, the ToF distance readings were being directly connected to the vehicle’s steering behaviour, allowing the sensors to play a more active role in autonomous navigation.
 
 A simplified steering strategy is:
 
@@ -247,38 +160,22 @@ The ToF sensors therefore became part of the feedback system used to keep the ve
 
 ## 3.5 IMU / Gyroscope
 
-An **IMU / gyroscope** was added to measure the orientation and heading of the vehicle.
+An IMU/gyroscope was added to measure the vehicle’s orientation and heading, providing different information from the ToF sensors. While the ToF sensors determine how far the robot is from a wall, the IMU determines the direction in which the robot is pointing. This heading information can then be used to detect unwanted rotation and correct the vehicle’s direction while driving. The IMU was physically introduced to the vehicle on 17 July and became an important part of the navigation system as development progressed.
 
-The IMU provides different information from the ToF sensors.
+We had a pseudocode to plan out what we needed to code:
 
-The ToF sensor answers:
+main(){
+loop(if left tof > xcm or right tof > xcm)(
+	Steer target(imu)
+	Check left tof if there is a wall within x cm  
+		steer right 	
+	Check right tof I there is a wall within x cm
+		steer left
+	Check if left tof is greater than x cm	
+)
 
-> How far is the robot from the wall?
 
-The IMU answers:
-
-> In which direction is the robot pointing?
-
-This heading information can be used to detect unwanted rotation and correct the vehicle's direction.
-
-The IMU was physically introduced on **17 July**.
-
-Further IMU programming was completed during August.
-
-One significant software problem was discovered on **12 August**.
-
-Our heading-correction logic was initially steering the robot back toward its original starting direction. This happened because the software continued treating the original direction as the desired heading even after the vehicle had intentionally completed a turn.
-
-This meant the control system could not simply maintain one permanent heading.
-
-Instead, the desired heading had to change after a deliberate turn.
-
-The correction logic was therefore modified so that the robot could distinguish between:
-
-* an unwanted heading error; and
-* an intentional change in direction.
-
-This was an important improvement to the autonomous navigation system.
+Further IMU programming was completed during August, with one significant software problem discovered on 12 August. Our heading-correction logic was initially steering the robot back towards its original starting direction because the software continued treating the starting heading as the desired heading even after the vehicle had intentionally completed a turn. This showed that the control system could not rely on one permanent heading throughout the course. Instead, the desired heading needed to be updated after each deliberate turn. We therefore modified the correction logic so that the robot could distinguish between an unwanted heading error and an intentional change in direction. This was an important improvement to the autonomous navigation system and allowed the vehicle to continue navigating more effectively after making turns.
 
 ---
 
@@ -304,13 +201,7 @@ The sensors provide complementary information:
                 Drive Motor    Steering Motor
 ```
 
-The HuskyLens identifies visual information.
-
-The ToF sensors measure distance.
-
-The IMU provides orientation information.
-
-The controller processes these inputs and commands the drive and steering motors.
+The HuskyLens identifies visual information, while the ToF sensors measure distance and the IMU provides orientation information
 
 ---
 
@@ -402,11 +293,7 @@ For example, if the HuskyLens successfully detected an object but the robot turn
 
 ## 4.3 Early Navigation Strategy
 
-The earliest software concentrated on basic movement and colour recognition.
-
-The vehicle was programmed to move forward while repeatedly checking the HuskyLens.
-
-When the HuskyLens recognised a colour, the program applied an appropriate steering action.
+The earliest software focused on basic movement and colour recognition. The vehicle was programmed to move forward while continuously checking the HuskyLens for recognised colours. When the HuskyLens detected a specific colour, the program responded by applying the appropriate steering action. This provided a simple starting point for developing the vehicle’s autonomous navigation system and allowed us to test the interaction between movement, sensor input, and steering control.
 
 A simplified form of the early logic was:
 
@@ -463,13 +350,7 @@ The amount and duration of the steering correction had to be tuned experimentall
 
 ## 4.5 Encoder / Target-Based Movement
 
-During later development, we also experimented with `runTarget()`-based control.
-
-Instead of relying entirely on a fixed time delay, target-based movement can command a motor to move by a defined amount.
-
-This was used during development of the Open Challenge navigation logic.
-
-The advantage of target-based movement is greater repeatability compared with using time alone.
+During later development, we also experimented with runTarget()-based control as part of the Open Challenge navigation logic. Instead of relying entirely on fixed time delays, target-based movement allows the motor to be commanded to move by a defined amount. This provided greater control over the vehicle’s movement and improved repeatability compared with using time-based control alone. However, the target values still needed to be tested and calibrated to ensure that the commanded movement matched the actual movement of the vehicle.
 
 However, the required values still have to be calibrated physically because actual vehicle movement depends on factors such as:
 
@@ -506,7 +387,7 @@ Steer away       v
 
 This provides a feedback mechanism instead of relying only on a predetermined steering sequence.
 
-By **21 August**, the team was actively connecting ToF distance readings to the turning of the wheels.
+By 21 August, the team was actively connecting ToF distance readings to the turning of the wheels.
 
 ---
 
@@ -532,13 +413,7 @@ Calculate Heading Error
        +---- Small error ---> Continue
 ```
 
-The heading reference cannot remain constant for the entire course.
-
-When the vehicle deliberately turns a corner, its new heading becomes intentional.
-
-This was discovered experimentally on **12 August**, when the vehicle attempted to steer back toward its original starting direction.
-
-The heading logic was modified so that navigation could continue after intentional turns.
+The heading reference could not remain constant throughout the entire course because the vehicle’s direction changes intentionally when it turns a corner. We discovered this experimentally on 12 August, when the vehicle attempted to steer back towards its original starting direction instead of continuing in the new direction. This showed that the original heading should not always be treated as the target. We therefore modified the heading logic so that the desired heading could be updated after intentional turns, allowing the vehicle to continue navigating correctly around the course.
 
 ---
 
@@ -592,15 +467,7 @@ Several major engineering decisions resulted directly from problems discovered d
 
 ## 5.1 Choosing Ackermann Steering
 
-We selected Ackermann steering rather than relying on differential steering.
-
-This increased mechanical complexity because the steering linkage had to be built, aligned, and calibrated.
-
-However, it provided a vehicle architecture that behaves more like a normal car and allowed propulsion and steering to be controlled independently.
-
-The disadvantage was that mechanical steering reliability became critical.
-
-This resulted in several rebuilds, but ultimately gave us a controllable front-steering system.
+We selected Ackermann steering instead of relying on differential steering because it provided a vehicle architecture that behaved more like a conventional car and allowed propulsion and steering to be controlled independently. However, this increased the mechanical complexity, as the steering linkage had to be carefully built, aligned, and calibrated. The main disadvantage was that the reliability of the mechanical steering system became critical, which resulted in several rebuilds and adjustments throughout development. Despite this, the final design gave us a controllable front-steering system that suited the requirements of the vehicle.
 
 ---
 
@@ -618,87 +485,37 @@ Examples included:
 * incorrect gear alignment;
 * chassis imbalance.
 
-We therefore adopted the principle that hardware faults should first be corrected mechanically before software calibration is attempted.
-
-The major chassis rebuild on **29 July** was an example of this approach.
+We therefore adopted the principle that hardware faults should first be corrected mechanically before software calibration is attempted, hence the major chassis rebuild on 29 July.
 
 ---
 
 ## 5.3 Sensor Mounting as Part of Sensor Design
 
-The HuskyLens initially required additional support to remain stable.
-
-An axle was introduced to stabilise it, but the first arrangement prevented sufficient adjustment.
-
-The mount was therefore changed.
-
-This showed us that using a sensor is not only an electrical or programming problem. Its physical mounting affects the quality of the data received by the software.
+The HuskyLens initially required additional support to remain stable during operation. We introduced an axle to improve its stability, but the first mounting arrangement limited the amount of adjustment available. The mount was therefore redesigned to provide better positioning and flexibility. This showed us that using a sensor is not only an electrical or programming challenge, as its physical mounting can also affect the quality and consistency of the data received by the software.
 
 ---
 
 ## 5.4 Time-Based vs Target-Based Control
 
-Early steering experiments used motor power together with fixed delays.
-
-This approach was simple and easy to test.
-
-However, time-based movement can change as mechanical conditions and battery behaviour change.
-
-Later development therefore experimented with target-based motor control using `runTarget()`.
-
-Target-based movement can provide more repeatable motor movement, although the required target values still need physical calibration.
+Early steering experiments used motor power together with fixed delays, which provided a simple and easy way to test the vehicle’s movement. However, time-based movement could vary depending on factors such as mechanical conditions and battery behaviour. As development progressed, we experimented with target-based motor control using runTarget(). This approach allowed us to control the motors based on a specific target position, making movement more repeatable. However, the target values still needed to be physically calibrated to ensure that the vehicle moved the required distance accurately.
 
 ---
 
 ## 5.5 Continuous Movement vs Stop-and-Turn
 
-Another software decision involved whether to stop the vehicle before each steering movement.
-
-Early approaches that repeatedly stopped the drive system made movement less smooth.
-
-Later software kept the drive motor running and applied temporary steering corrections while the vehicle continued moving.
-
-This improved continuity of motion and more closely matched the behaviour required for autonomous driving.
+Another important software decision was whether the vehicle should stop before each steering movement. In our earlier approaches, repeatedly stopping the drive system made the vehicle’s movement less smooth and interrupted its motion. We later changed the software so that the drive motor remained running while temporary steering corrections were applied as the vehicle continued moving. This resulted in smoother and more continuous movement, while also being more suitable for the behaviour required during autonomous driving.
 
 ---
 
 ## 5.6 Combining Multiple Sensors
 
-No single sensor provides all the information required for reliable navigation.
-
-The HuskyLens provides visual information.
-
-The ToF sensors provide distance information.
-
-The IMU provides heading information.
-
-Using these different sensing methods together reduces dependence on one type of measurement.
-
-For example, a colour sensor may recognise an obstacle but cannot by itself tell the controller how far the vehicle is from a wall.
-
-Similarly, an IMU can provide heading but cannot identify a coloured obstacle.
-
-This led to a multi-sensor architecture where each sensor has a specialised role.
+No single sensor can provide all the information needed for reliable navigation, so we combined multiple sensing methods, with each sensor having a specific role. The HuskyLens provides visual information, the ToF sensors provide distance measurements, and the IMU provides heading information. Using these sensors together reduces the vehicle’s dependence on any one type of measurement. For example, the HuskyLens can recognise an obstacle but cannot determine the exact distance between the vehicle and a wall, while the IMU can provide heading information but cannot identify a coloured obstacle. This led us to develop a multi-sensor architecture where each sensor contributes different information to improve the overall reliability of the navigation system.
 
 ---
 
 ## 5.7 Debugging the Heading System
 
-One of the most useful software failures occurred during IMU development.
-
-The first heading-correction logic attempted to return the robot to its initial starting direction even after a deliberate corner.
-
-The software was behaving according to its original rule, but the rule itself was incorrect for lap navigation.
-
-We therefore changed the concept from:
-
-> Always return to the original heading.
-
-to:
-
-> Maintain the current desired heading and update that desired heading after an intentional turn.
-
-This was an example of changing the control model rather than simply tuning a numerical parameter.
+One of the most useful software failures occurred during the development of the IMU heading control. Our first heading-correction system attempted to return the robot to its original starting direction even after it had intentionally made a corner. Although the software was following the rule we had programmed, the rule itself was not suitable for lap navigation. We therefore changed the control approach so that the robot maintained a current desired heading and updated this heading after each intentional turn. This showed us that improving the system was not always about adjusting numerical values, but sometimes required changing the control model itself.
 
 ---
 
@@ -745,13 +562,7 @@ During development, ESP32 package compatibility caused problems with the EVO lib
 
 ## 6.2 EVO Library
 
-The EVO Arduino library was installed manually from the project's GitHub release package rather than relying only on Arduino Library Manager.
-
-The library provides the interfaces used to communicate with EVO hardware such as motors, sensors, and display functionality.
-
-During early setup, compatibility problems were encountered between some versions of the ESP32 package and the EVO library.
-
-One library issue also involved serial communication definitions, which required troubleshooting before compilation could proceed correctly.
+The EVO Arduino library was installed manually using the project’s GitHub release package instead of relying only on the Arduino Library Manager. The library provides the interfaces needed to communicate with EVO hardware, including the motors, sensors, and display. During the initial setup, we encountered compatibility issues between certain versions of the ESP32 package and the EVO library. There was also an issue involving serial communication definitions within the library, which required troubleshooting before the code could compile correctly. These setup problems helped us understand the importance of using compatible library and board package versions.
 
 ---
 
@@ -799,17 +610,7 @@ These were corrected before upload testing continued.
 
 ## 6.5 Connecting the Controller
 
-The EVOX1 controller is connected to the computer using a USB data cable.
-
-A charge-only cable cannot be used for programming because it provides power without the data connection required for uploading software.
-
-After connecting the controller, the correct serial port must be selected in Arduino IDE.
-
-On macOS, the port appears as a `/dev/cu...` device.
-
-A previously selected port may disappear after reconnecting the board, so the port must sometimes be selected again.
-
-Bluetooth serial ports should not be selected for USB programming.
+The EVOX1 controller is connected to the computer using a USB data cable, as a charge-only cable only provides power and does not support the data connection needed to upload software. After connecting the controller, the correct serial port must be selected in Arduino IDE. On macOS, the controller appears as a /dev/cu... device. The selected port may sometimes disappear after the board is disconnected and reconnected, meaning it has to be selected again. For USB programming, Bluetooth serial ports should not be selected.
 
 ---
 
@@ -963,40 +764,7 @@ The journal focuses on the relationship between problems discovered during testi
 
 ---
 
-# 10. Vehicle Photographs
-
-The competition documentation requires photographs showing the vehicle from the:
-
-* front;
-* rear;
-* left side;
-* right side;
-* top;
-* bottom.
-
-It also requires a team photograph.
-
-These photographs are part of the required competition evidence and should represent the actual competition vehicle and team.
-
----
-
-# 11. Autonomous Driving Videos
-
-The competition documentation requires autonomous-driving footage for both challenge categories:
-
-## Open Challenge
-
-The demonstration should contain at least 30 seconds of actual autonomous driving.
-
-## Obstacle Challenge
-
-The demonstration should contain at least 30 seconds of actual autonomous driving, including operation of the obstacle-navigation strategy.
-
-Video evidence must show the real autonomous vehicle.
-
----
-
-# 12. Source Code
+# 10. Source Code
 
 The source code for the vehicle is organised separately from the written engineering documentation.
 
@@ -1024,21 +792,9 @@ The separation between hardware definitions and main control logic also makes th
 
 ---
 
-# 13. Development Summary
+# 11. Development Summary
 
-The development of our WRO Future Engineers vehicle required extensive iteration.
-
-The project began with chassis design and Ackermann steering construction.
-
-The next stage involved basic motor movement and HuskyLens colour recognition.
-
-Mechanical failures then required repeated work on the steering system and drivetrain.
-
-As reliability improved, ToF distance sensing and IMU heading measurements were introduced.
-
-The software progressed from basic timed steering actions toward continuous driving, sensor-based steering corrections, heading control, target-based motor movement, and autonomous lap-navigation logic.
-
-Some of the most valuable lessons came from failures.
+The development of our WRO Future Engineers vehicle involved a lot of testing and iteration. We started with the chassis design and construction of the Ackermann steering system, before moving on to basic motor movement and HuskyLens colour recognition. After encountering several mechanical failures, we repeatedly modified and improved the steering system and drivetrain. As the vehicle became more reliable, we introduced ToF distance sensing and IMU heading measurements. At the same time, the software developed from basic timed steering actions to continuous driving, sensor-based steering corrections, heading control, target-based motor movement, and eventually autonomous lap-navigation logic. Throughout the project, some of the most valuable lessons came from the failures we experienced and the improvements we made from them.
 
 We learned that:
 
