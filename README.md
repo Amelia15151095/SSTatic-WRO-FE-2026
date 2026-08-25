@@ -1,0 +1,1 @@
+# SSTatic-WRO-FE-2026
